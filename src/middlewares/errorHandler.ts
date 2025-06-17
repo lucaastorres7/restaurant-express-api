@@ -15,7 +15,7 @@ export function errorHandler(
   if (error instanceof ZodError) {
     return res
       .status(400)
-      .json({ message: "validation error", issues: error.format });
+      .json({ message: "validation error", issues: error.format() });
   }
 
   return res.status(500).json({ message: error.message });
